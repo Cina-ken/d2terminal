@@ -68,6 +68,7 @@ export interface Testimonial {
   text: string
   date: string
   avatar?: string
+  source?: 'google' | 'yandex' | 'direct'
 }
 
 // ─── Benefits ──────────────────────────────────────────────────────────────
@@ -77,6 +78,32 @@ export interface Benefit {
   icon: string
   title: string
   description: string
+}
+
+// ─── Gallery ───────────────────────────────────────────────────────────────
+
+export type WorkCategory = 'all' | 'haircut' | 'manicure' | 'massage' | 'epilation'
+
+export interface GalleryItem {
+  id: string
+  category: WorkCategory
+  image: string
+  title: string
+  description: string
+  master: string
+}
+
+// ─── Masters ───────────────────────────────────────────────────────────────
+
+export interface Master {
+  id: string
+  name: string
+  role: string
+  experience: string
+  specialties: string[]
+  image: string
+  rating: number
+  reviewCount: number
 }
 
 // ─── API ───────────────────────────────────────────────────────────────────

@@ -1,4 +1,4 @@
-import type { SiteConfig, NavLink, Service, Testimonial, Benefit } from '@/types'
+import type { SiteConfig, NavLink, Service, Testimonial, Benefit, GalleryItem, Master } from '@/types'
 
 // ─── Site Configuration ────────────────────────────────────────────────────
 
@@ -193,4 +193,138 @@ export const timeSlots: string[] = [
   '16:00', '16:30', '17:00', '17:30',
   '18:00', '18:30', '19:00', '19:30',
   '20:00', '20:30', '21:00', '21:30',
+]
+
+// ─── Gallery Items ─────────────────────────────────────────────────────────
+// Phase B: "Наши работы" section.
+// Images from Unsplash — replace with real salon work photos later.
+
+export const galleryItems: GalleryItem[] = [
+  {
+    id: 'g1',
+    category: 'haircut',
+    image: 'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=80&auto=format&fit=crop',
+    title: 'Укладка и объём',
+    description: 'Авторская укладка на средние волосы',
+    master: 'Алёна',
+  },
+  {
+    id: 'g2',
+    category: 'manicure',
+    image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80&auto=format&fit=crop',
+    title: 'Гель-лак с дизайном',
+    description: 'Маникюр с авторским дизайном',
+    master: 'Карина',
+  },
+  {
+    id: 'g3',
+    category: 'haircut',
+    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80&auto=format&fit=crop',
+    title: 'Окрашивание балаяж',
+    description: 'Сложное окрашивание техника балаяж',
+    master: 'Наталья',
+  },
+  {
+    id: 'g4',
+    category: 'manicure',
+    image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80&auto=format&fit=crop&crop=right',
+    title: 'Педикюр с покрытием',
+    description: 'Аппаратный педикюр + гель-лак',
+    master: 'Карина',
+  },
+  {
+    id: 'g5',
+    category: 'haircut',
+    image: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80&auto=format&fit=crop',
+    title: 'Стрижка каре',
+    description: 'Классическое каре с укладкой',
+    master: 'Алёна',
+  },
+  {
+    id: 'g6',
+    category: 'massage',
+    image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&q=80&auto=format&fit=crop',
+    title: 'Расслабляющий массаж',
+    description: 'Классический массаж спины и шеи',
+    master: 'Марина',
+  },
+  {
+    id: 'g7',
+    category: 'manicure',
+    image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80&auto=format&fit=crop&crop=top',
+    title: 'Французский маникюр',
+    description: 'Классический french с укреплением',
+    master: 'Виктория',
+  },
+  {
+    id: 'g8',
+    category: 'haircut',
+    image: 'https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600&q=80&auto=format&fit=crop',
+    title: 'Мужская стрижка',
+    description: 'Классическая мужская с укладкой',
+    master: 'Александр',
+  },
+  {
+    id: 'g9',
+    category: 'epilation',
+    image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&q=80&auto=format&fit=crop',
+    title: 'Шугаринг',
+    description: 'Сахарная эпиляция — гладкость надолго',
+    master: 'Ольга',
+  },
+]
+
+// ─── Gallery Category Labels ───────────────────────────────────────────────
+
+export const galleryCategories = [
+  { id: 'all',       label: 'Все работы'  },
+  { id: 'haircut',   label: 'Стрижки'     },
+  { id: 'manicure',  label: 'Маникюр'     },
+  { id: 'massage',   label: 'Массаж'      },
+  { id: 'epilation', label: 'Эпиляция'    },
+] as const
+
+// ─── Masters ───────────────────────────────────────────────────────────────
+
+export const masters: Master[] = [
+  {
+    id: 'm1',
+    name: 'Алёна Соколова',
+    role: 'Топ-стилист',
+    experience: '8 лет опыта',
+    specialties: ['Стрижки', 'Окрашивание', 'Балаяж'],
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80&auto=format&fit=crop',
+    rating: 5.0,
+    reviewCount: 124,
+  },
+  {
+    id: 'm2',
+    name: 'Карина Михайлова',
+    role: 'Мастер маникюра',
+    experience: '5 лет опыта',
+    specialties: ['Маникюр', 'Педикюр', 'Наращивание'],
+    image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80&auto=format&fit=crop',
+    rating: 4.9,
+    reviewCount: 98,
+  },
+  {
+    id: 'm3',
+    name: 'Марина Иванова',
+    role: 'Массажист',
+    experience: '6 лет опыта',
+    specialties: ['Классический', 'Антицеллюлитный', 'Лимфодренаж'],
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80&auto=format&fit=crop',
+    rating: 5.0,
+    reviewCount: 76,
+  },
+  {
+    id: 'm4',
+    name: 'Ольга Петрова',
+    role: 'Мастер эпиляции',
+    experience: '4 года опыта',
+    specialties: ['Шугаринг', 'Воск', 'Биоэпиляция'],
+    image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&q=80&auto=format&fit=crop',
+    rating: 4.9,
+    reviewCount: 61,
+  },
 ]

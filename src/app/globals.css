@@ -332,11 +332,6 @@
   transition: opacity 0.7s ease, transform 0.7s ease;
   &.is-visible { opacity: 1; transform: translateY(0); }
 }
-
-@utility pb-safe {
-  padding-bottom: env(safe-area-inset-bottom, 0px);
-}
-
 @utility reveal-left {
   opacity: 0;
   transform: translateX(-24px);
@@ -349,3 +344,150 @@
 @utility reveal-delay-4 { transition-delay: 400ms; }
 @utility reveal-delay-5 { transition-delay: 500ms; }
 @utility reveal-delay-6 { transition-delay: 600ms; }
+
+/* ─── iOS Safe Area ───────────────────────────────────────────────────────
+   Adds bottom padding equal to the iPhone home indicator height.
+   Used on the sticky mobile booking bar.
+─────────────────────────────────────────────────────────────────────────── */
+@utility pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* ─── Phase A: Visual Identity Additions ─────────────────────────────────── */
+
+/* Noise texture overlay — adds grain for premium feel */
+@utility noise-texture {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.4;
+  }
+}
+
+/* Gold shimmer line — decorative horizontal accent */
+@utility gold-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-champagne) 30%,
+    var(--color-champagne-light) 50%,
+    var(--color-champagne) 70%,
+    transparent 100%
+  );
+}
+
+/* Section with subtle dot-grid pattern */
+@utility dot-grid-bg {
+  background-image: radial-gradient(
+    circle,
+    var(--color-cream-dark) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
+}
+
+/* Counter animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@utility animate-count {
+  animation: countUp 0.6s ease forwards;
+}
+
+/* Shimmer effect for loading/highlight states */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@utility text-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-champagne-dark) 0%,
+    var(--color-champagne-light) 40%,
+    var(--color-champagne) 60%,
+    var(--color-champagne-dark) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Image overlay gradient — darkens bottom of images for text legibility */
+@utility img-overlay {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 40%,
+      rgba(26, 26, 26, 0.7) 100%
+    );
+    pointer-events: none;
+  }
+}
+
+/* Luxury card — elevated version of card */
+@utility luxury-card {
+  background: #fff;
+  border: 1px solid var(--color-cream-dark);
+  padding: 2.5rem;
+  position: relative;
+  transition: box-shadow 500ms ease, transform 500ms ease;
+  box-shadow:
+    0 1px 3px rgba(0,0,0,0.04),
+    0 0 0 1px rgba(201,169,110,0.08);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-champagne),
+      transparent
+    );
+    opacity: 0;
+    transition: opacity 400ms ease;
+  }
+
+  &:hover {
+    box-shadow:
+      0 8px 32px rgba(0,0,0,0.08),
+      0 0 0 1px rgba(201,169,110,0.2);
+    transform: translateY(-3px);
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+/* Pill badge */
+@utility badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: 1px solid var(--color-champagne);
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-champagne);
+  background: color-mix(in srgb, var(--color-champagne) 8%, transparent);
+}

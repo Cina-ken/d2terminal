@@ -36,9 +36,16 @@ export default function Navbar() {
           'fixed top-0 left-0 right-0 z-50',
           'transition-all duration-500',
           scrolled
-            ? 'bg-cream/95 backdrop-blur-md border-b border-cream-dark shadow-sm py-4'
+            ? 'py-4 border-b'
             : 'bg-transparent py-6'
         )}
+        style={scrolled ? {
+          background: 'rgba(250,248,245,0.92)',
+          backdropFilter: 'blur(16px)',
+          WebkitBackdropFilter: 'blur(16px)',
+          borderColor: 'var(--color-cream-dark)',
+          boxShadow: '0 1px 24px rgba(0,0,0,0.06)',
+        } : {}}
       >
         <div className="section-container flex items-center justify-between">
 
@@ -49,15 +56,15 @@ export default function Navbar() {
             aria-label="D2 Terminal — на главную"
           >
             <span
-              className={cn(
-                'font-display text-2xl tracking-tight transition-colors duration-300',
-                scrolled ? 'text-charcoal-800' : 'text-charcoal-800',
-                'group-hover:text-champagne'
-              )}
+              className="font-display text-2xl tracking-tight transition-colors duration-300 group-hover:text-champagne"
+              style={{ color: scrolled ? 'var(--color-charcoal-800)' : 'var(--color-cream)' }}
             >
               D2 Terminal
             </span>
-            <span className="font-body text-[10px] tracking-[0.2em] uppercase text-ink-muted mt-0.5">
+            <span
+              className="font-body text-[10px] tracking-[0.2em] uppercase mt-0.5 transition-colors duration-300"
+              style={{ color: scrolled ? 'var(--color-ink-muted)' : 'rgba(250,248,245,0.45)' }}
+            >
               Салон красоты
             </span>
           </Link>
@@ -70,7 +77,8 @@ export default function Navbar() {
                 href={link.href}
                 className={cn(
                   'nav-link',
-                  pathname === link.href && 'nav-link-active'
+                  pathname === link.href && 'nav-link-active',
+                  !scrolled && 'text-[rgba(250,248,245,0.75)] hover:text-champagne'
                 )}
               >
                 {link.label}
@@ -82,13 +90,18 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-6">
             <a
               href={siteConfig.phoneHref}
-              className="font-body text-xs font-medium text-ink-secondary hover:text-champagne transition-colors duration-300 tracking-wide"
+              className="font-body text-xs font-medium tracking-wide transition-colors duration-300"
+              style={{ color: scrolled ? 'var(--color-ink-secondary)' : 'rgba(250,248,245,0.6)' }}
             >
               {siteConfig.phone}
             </a>
             <Link
               href="/booking"
               className="btn-primary py-3 px-6 text-[11px]"
+              style={!scrolled ? {
+                background: 'var(--color-champagne)',
+                color: 'var(--color-charcoal-900)',
+              } : {}}
             >
               Записаться
             </Link>

@@ -1,37 +1,34 @@
+
 import type { Metadata } from 'next'
 import SiteLayout from '@/components/layout/SiteLayout'
 import Hero from '@/components/sections/Hero'
 import ServicesPreview from '@/components/sections/ServicesPreview'
 import Benefits from '@/components/sections/Benefits'
+import WorksGallery from '@/components/sections/WorksGallery'
+import Masters from '@/components/sections/Masters'
+import WhyOnline from '@/components/sections/WhyOnline'
 import Testimonials from '@/components/sections/Testimonials'
+import FAQ from '@/components/sections/FAQ'
 import CtaBanner from '@/components/sections/CtaBanner'
 
-// ─── Page Metadata ────────────────────────────────────────────────────────
-
 export const metadata: Metadata = {
-  title: 'D2 Terminal — Салон красоты в Ростове-на-Дону',
+  title: 'D2 Terminal — Салон красоты в Ростове-на-Дону | Запись онлайн',
   description:
-    'Премиальный салон красоты D2 Terminal. Стрижки, маникюр, педикюр, массаж и эпиляция. Онлайн-запись за 1 минуту. Ежедневно 10:00–22:00.',
+    'Салон красоты D2 Terminal в Ростове-на-Дону. Стрижки от 700₽, маникюр от 800₽, массаж, эпиляция. Онлайн-запись за 1 минуту. Ежедневно 10:00–22:00.',
+  alternates: { canonical: 'https://d2terminal.vercel.app' },
 }
-
-// ─── Homepage ─────────────────────────────────────────────────────────────
 
 export default function HomePage() {
   return (
     <SiteLayout>
-      {/* 1. Hero — full screen, salon name, tagline, CTA */}
       <Hero />
-
-      {/* 2. Services preview — 4 cards with price */}
       <ServicesPreview />
-
-      {/* 3. Benefits — why choose D2 Terminal */}
       <Benefits />
-
-      {/* 4. Testimonials — 6 client reviews */}
+      <WorksGallery />
+      <Masters />
+      <WhyOnline />
       <Testimonials />
-
-      {/* 5. Final CTA banner — book now */}
+      <FAQ />
       <CtaBanner />
     </SiteLayout>
   )
