@@ -19,10 +19,11 @@ export const siteConfig: SiteConfig = {
 // ─── Navigation ────────────────────────────────────────────────────────────
 
 export const navLinks: NavLink[] = [
-  { label: 'Главная',   href: '/'         },
-  { label: 'Услуги',    href: '/services'  },
-  { label: 'Запись',    href: '/booking'   },
-  { label: 'Контакты',  href: '/contacts'  },
+  { label: 'Главная',  href: '/'         },
+  { label: 'Услуги',   href: '/services'  },
+  { label: 'Галерея',  href: '/gallery'   },
+  { label: 'Запись',   href: '/booking'   },
+  { label: 'Контакты', href: '/contacts'  },
 ]
 
 // ─── Services ──────────────────────────────────────────────────────────────
@@ -200,77 +201,90 @@ export const timeSlots: string[] = [
 // Images from Unsplash — replace with real salon work photos later.
 
 export const galleryItems: GalleryItem[] = [
+  // ── Haircut ──────────────────────────────────────────────────────────
   {
-    id: 'g1',
-    category: 'haircut',
+    id: 'g1', category: 'haircut',
     image: 'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=80&auto=format&fit=crop',
-    title: 'Укладка и объём',
-    description: 'Авторская укладка на средние волосы',
-    master: 'Алёна',
+    title: 'Укладка и объём', description: 'Авторская укладка на средние волосы', master: 'Алёна',
   },
   {
-    id: 'g2',
-    category: 'manicure',
-    image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80&auto=format&fit=crop',
-    title: 'Гель-лак с дизайном',
-    description: 'Маникюр с авторским дизайном',
-    master: 'Карина',
-  },
-  {
-    id: 'g3',
-    category: 'haircut',
+    id: 'g3', category: 'haircut',
     image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80&auto=format&fit=crop',
-    title: 'Окрашивание балаяж',
-    description: 'Сложное окрашивание техника балаяж',
-    master: 'Наталья',
+    title: 'Окрашивание балаяж', description: 'Сложное окрашивание техника балаяж', master: 'Наталья',
   },
   {
-    id: 'g4',
-    category: 'manicure',
-    image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80&auto=format&fit=crop&crop=right',
-    title: 'Педикюр с покрытием',
-    description: 'Аппаратный педикюр + гель-лак',
-    master: 'Карина',
-  },
-  {
-    id: 'g5',
-    category: 'haircut',
+    id: 'g5', category: 'haircut',
     image: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80&auto=format&fit=crop',
-    title: 'Стрижка каре',
-    description: 'Классическое каре с укладкой',
-    master: 'Алёна',
+    title: 'Стрижка каре', description: 'Классическое каре с укладкой', master: 'Алёна',
   },
   {
-    id: 'g6',
-    category: 'massage',
-    image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&q=80&auto=format&fit=crop',
-    title: 'Расслабляющий массаж',
-    description: 'Классический массаж спины и шеи',
-    master: 'Марина',
-  },
-  {
-    id: 'g7',
-    category: 'manicure',
-    image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80&auto=format&fit=crop&crop=top',
-    title: 'Французский маникюр',
-    description: 'Классический french с укреплением',
-    master: 'Виктория',
-  },
-  {
-    id: 'g8',
-    category: 'haircut',
+    id: 'g8', category: 'haircut',
     image: 'https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600&q=80&auto=format&fit=crop',
-    title: 'Мужская стрижка',
-    description: 'Классическая мужская с укладкой',
-    master: 'Александр',
+    title: 'Мужская стрижка', description: 'Классическая мужская с укладкой', master: 'Александр',
   },
   {
-    id: 'g9',
-    category: 'epilation',
+    id: 'g10', category: 'haircut',
+    image: 'https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=600&q=80&auto=format&fit=crop',
+    title: 'Окрашивание омбре', description: 'Плавный переход цвета — техника омбре', master: 'Наталья',
+  },
+  {
+    id: 'g11', category: 'haircut',
+    image: 'https://images.unsplash.com/photo-1549236177-f9b0031d5a69?w=600&q=80&auto=format&fit=crop',
+    title: 'Вечерняя укладка', description: 'Праздничная укладка с локонами', master: 'Алёна',
+  },
+  // ── Manicure ─────────────────────────────────────────────────────────
+  {
+    id: 'g2', category: 'manicure',
+    image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80&auto=format&fit=crop',
+    title: 'Гель-лак с дизайном', description: 'Маникюр с авторским дизайном', master: 'Карина',
+  },
+  {
+    id: 'g4', category: 'manicure',
+    image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80&auto=format&fit=crop&crop=right',
+    title: 'Педикюр с покрытием', description: 'Аппаратный педикюр + гель-лак', master: 'Карина',
+  },
+  {
+    id: 'g7', category: 'manicure',
+    image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80&auto=format&fit=crop&crop=top',
+    title: 'Французский маникюр', description: 'Классический french с укреплением', master: 'Виктория',
+  },
+  {
+    id: 'g12', category: 'manicure',
+    image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80&auto=format&fit=crop&crop=bottom',
+    title: 'Наращивание ногтей', description: 'Наращивание на типсах с покрытием', master: 'Карина',
+  },
+  // ── Massage ──────────────────────────────────────────────────────────
+  {
+    id: 'g6', category: 'massage',
+    image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&q=80&auto=format&fit=crop',
+    title: 'Расслабляющий массаж', description: 'Классический массаж спины и шеи', master: 'Марина',
+  },
+  {
+    id: 'g13', category: 'massage',
+    image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=80&auto=format&fit=crop',
+    title: 'Антицеллюлитный массаж', description: 'Интенсивный курсовой массаж', master: 'Марина',
+  },
+  // ── Epilation ────────────────────────────────────────────────────────
+  {
+    id: 'g9', category: 'epilation',
     image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&q=80&auto=format&fit=crop',
-    title: 'Шугаринг',
-    description: 'Сахарная эпиляция — гладкость надолго',
-    master: 'Ольга',
+    title: 'Шугаринг', description: 'Сахарная эпиляция — гладкость надолго', master: 'Ольга',
+  },
+  // ── Interior ─────────────────────────────────────────────────────────
+  {
+    id: 'g14', category: 'interior',
+    image: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80&auto=format&fit=crop&crop=center',
+    title: 'Рабочее место', description: 'Чистота и порядок на каждом рабочем месте', master: 'D2 Terminal',
+  },
+  {
+    id: 'g15', category: 'interior',
+    image: 'https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&q=80&auto=format&fit=crop',
+    title: 'Зал маникюра', description: 'Современное оборудование и уютная атмосфера', master: 'D2 Terminal',
+  },
+  {
+    id: 'g16', category: 'interior',
+    image: 'https://images.unsplash.com/photo-1470259078422-826894b933aa?w=600&q=80&auto=format&fit=crop',
+    title: 'Зона ожидания', description: 'Комфортная зона ожидания с кофе и чаем', master: 'D2 Terminal',
   },
 ]
 
@@ -278,10 +292,11 @@ export const galleryItems: GalleryItem[] = [
 
 export const galleryCategories = [
   { id: 'all',       label: 'Все работы'  },
-  { id: 'haircut',   label: 'Стрижки'     },
+  { id: 'haircut',   label: 'Волосы'      },
   { id: 'manicure',  label: 'Маникюр'     },
   { id: 'massage',   label: 'Массаж'      },
   { id: 'epilation', label: 'Эпиляция'    },
+  { id: 'interior',  label: 'Интерьер'    },
 ] as const
 
 // ─── Masters ───────────────────────────────────────────────────────────────

@@ -82,7 +82,7 @@ export interface Benefit {
 
 // ─── Gallery ───────────────────────────────────────────────────────────────
 
-export type WorkCategory = 'all' | 'haircut' | 'manicure' | 'massage' | 'epilation'
+export type WorkCategory = 'all' | 'haircut' | 'manicure' | 'massage' | 'epilation' | 'interior'
 
 export interface GalleryItem {
   id: string
