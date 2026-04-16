@@ -1,15 +1,12 @@
 @import "tailwindcss";
 
 /* ─── Theme Tokens ────────────────────────────────────────────────────────
-   Replaces tailwind.config.js entirely in v4.
-   Tailwind reads @theme and generates utility classes automatically.
+   Single source of truth — replaces tailwind.config.js in v4.
 ─────────────────────────────────────────────────────────────────────────── */
 @theme {
-  /* Fonts */
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body:    'Jost', system-ui, sans-serif;
 
-  /* Charcoal */
   --color-charcoal-50:  #f5f5f5;
   --color-charcoal-100: #e8e8e8;
   --color-charcoal-200: #d1d1d1;
@@ -21,28 +18,23 @@
   --color-charcoal-800: #1a1a1a;
   --color-charcoal-900: #0d0d0d;
 
-  /* Champagne */
   --color-champagne:       #c9a96e;
   --color-champagne-light: #e8d5b0;
   --color-champagne-dark:  #a07840;
 
-  /* Cream */
   --color-cream:      #faf8f5;
   --color-cream-warm: #f5f0e8;
   --color-cream-dark: #e8e4dc;
 
-  /* Ink */
   --color-ink-primary:   #1a1a1a;
   --color-ink-secondary: #5c5c5c;
   --color-ink-muted:     #9a9a9a;
   --color-ink-inverted:  #faf8f5;
 
-  /* Spacing extras */
   --spacing-18:  4.5rem;
   --spacing-88:  22rem;
   --spacing-128: 32rem;
 
-  /* Animations */
   --animate-fade-up:  fadeUp 0.7s ease forwards;
   --animate-fade-in:  fadeIn 0.6s ease forwards;
   --animate-slide-in: slideIn 0.5s ease forwards;
@@ -77,48 +69,47 @@
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    font-weight: 400;
-    line-height: 1.15;
+    font-weight: 300;
+    line-height: 1.1;
   }
-  ::selection {
-    background: var(--color-champagne);
-    color: #fff;
-  }
+  ::selection { background: var(--color-champagne); color: #fff; }
   ::-webkit-scrollbar       { width: 6px; }
   ::-webkit-scrollbar-track { background: var(--color-cream); }
   ::-webkit-scrollbar-thumb { background: var(--color-champagne); border-radius: 3px; }
 }
 
-/* ─── Utilities ───────────────────────────────────────────────────────────
-   @utility replaces @layer components in Tailwind v4.
-─────────────────────────────────────────────────────────────────────────── */
+/* ─── Utilities (each defined ONCE) ──────────────────────────────────────*/
 
-/* Fluid type */
+/* ── Typography ─────────────────────────────────────────────────────── */
 @utility text-hero {
-  font-size: clamp(3rem, 8vw, 6.5rem);
-  line-height: 1.0;
-  letter-spacing: -0.03em;
+  font-size: clamp(3.5rem, 9vw, 7.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  font-weight: 300;
 }
 @utility text-h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-size: clamp(2.25rem, 5.5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  font-weight: 300;
 }
 @utility text-h2 {
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 300;
 }
 @utility text-h3 {
   font-size: clamp(1.1rem, 2vw, 1.375rem);
   line-height: 1.3;
 }
 @utility text-lead {
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
-  line-height: 1.7;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  line-height: 1.75;
+  font-weight: 300;
 }
 
-/* Layout */
+/* ── Layout ──────────────────────────────────────────────────────────── */
 @utility section-container {
   max-width: 1280px;
   margin-inline: auto;
@@ -126,29 +117,34 @@
   @media (width >= 1024px) { padding-inline: 3rem; }
 }
 @utility section-padding {
-  padding-block: 6rem;
-  @media (width >= 1024px) { padding-block: 8rem; }
+  padding-block: 7rem;
+  @media (width >= 1024px) { padding-block: 9rem; }
 }
 @utility max-w-site     { max-width: 1280px; }
 @utility max-w-prose-lg { max-width: 72ch; }
+@utility pb-safe        { padding-bottom: env(safe-area-inset-bottom, 0px); }
 
-/* Branding */
+/* ── Branding ────────────────────────────────────────────────────────── */
 @utility section-label {
   font-family: var(--font-body);
-  font-size: 0.625rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--color-champagne);
 }
 @utility divider {
-  width: 3rem;
+  width: 4rem;
   height: 1px;
-  background-color: var(--color-champagne);
+  background: linear-gradient(90deg, var(--color-champagne-dark), var(--color-champagne), var(--color-champagne-dark));
   display: block;
 }
+@utility gold-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-champagne) 30%, var(--color-champagne-light) 50%, var(--color-champagne) 70%, transparent 100%);
+}
 
-/* Buttons */
+/* ── Buttons ─────────────────────────────────────────────────────────── */
 @utility btn-primary {
   display: inline-flex;
   align-items: center;
@@ -156,16 +152,16 @@
   gap: 0.5rem;
   background-color: var(--color-charcoal-800);
   color: var(--color-cream);
-  padding: 1rem 2rem;
+  padding: 1.1rem 2.5rem;
   font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  transition: background-color 400ms ease, color 400ms ease, transform 150ms ease;
   cursor: pointer;
   border: none;
   text-decoration: none;
-  transition: background-color 350ms ease, color 350ms ease, transform 150ms ease;
   &:hover { background-color: var(--color-champagne); color: var(--color-charcoal-900); }
   &:active { transform: scale(0.97); }
 }
@@ -177,15 +173,15 @@
   border: 1px solid var(--color-charcoal-800);
   color: var(--color-charcoal-800);
   background: transparent;
-  padding: 1rem 2rem;
+  padding: 1.1rem 2.5rem;
   font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  transition: background-color 400ms ease, color 400ms ease, transform 150ms ease;
   cursor: pointer;
   text-decoration: none;
-  transition: background-color 350ms ease, color 350ms ease, transform 150ms ease;
   &:hover { background-color: var(--color-charcoal-800); color: var(--color-cream); }
   &:active { transform: scale(0.97); }
 }
@@ -196,16 +192,16 @@
   gap: 0.5rem;
   background-color: var(--color-champagne);
   color: var(--color-charcoal-900);
-  padding: 1rem 2rem;
+  padding: 1.1rem 2.5rem;
   font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  transition: background-color 400ms ease, color 400ms ease, transform 150ms ease;
   cursor: pointer;
   border: none;
   text-decoration: none;
-  transition: background-color 350ms ease, color 350ms ease, transform 150ms ease;
   &:hover { background-color: var(--color-champagne-dark); color: #fff; }
   &:active { transform: scale(0.97); }
 }
@@ -219,9 +215,9 @@
   border: none;
   padding: 0.75rem 1.5rem;
   font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   cursor: pointer;
   text-decoration: none;
@@ -229,7 +225,7 @@
   &:hover { color: var(--color-champagne); }
 }
 
-/* Inputs */
+/* ── Inputs ──────────────────────────────────────────────────────────── */
 @utility input-base {
   width: 100%;
   background: #fff;
@@ -268,7 +264,7 @@
   }
 }
 
-/* Cards */
+/* ── Cards ───────────────────────────────────────────────────────────── */
 @utility card {
   background: #fff;
   border: 1px solid var(--color-cream-dark);
@@ -296,13 +292,36 @@
   transition: transform 300ms ease;
   display: inline-block;
 }
+@utility luxury-card {
+  background: #fff;
+  border: 1px solid var(--color-cream-dark);
+  padding: 2.5rem;
+  position: relative;
+  transition: box-shadow 500ms ease, transform 500ms ease, border-color 400ms ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03), 0 0 0 1px rgba(201,169,110,0.06);
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, var(--color-champagne) 40%, var(--color-champagne-light) 60%, transparent 100%);
+    opacity: 0;
+    transition: opacity 400ms ease;
+  }
+  &:hover {
+    box-shadow: 0 12px 40px rgba(0,0,0,0.10), 0 0 0 1px rgba(201,169,110,0.25);
+    transform: translateY(-4px);
+    border-color: rgba(201,169,110,0.3);
+  }
+  &:hover::before { opacity: 1; }
+}
 
-/* Nav */
+/* ── Nav ─────────────────────────────────────────────────────────────── */
 @utility nav-link {
   font-family: var(--font-body);
-  font-size: 0.625rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--color-ink-secondary);
   text-decoration: none;
@@ -314,8 +333,8 @@
     position: absolute;
     bottom: 0; left: 0;
     width: 0; height: 1px;
-    background: var(--color-champagne);
-    transition: width 300ms ease;
+    background: linear-gradient(90deg, var(--color-champagne), var(--color-champagne-light));
+    transition: width 350ms ease;
   }
   &:hover { color: var(--color-champagne); }
   &:hover::after { width: 100%; }
@@ -325,7 +344,24 @@
   &::after { width: 100%; }
 }
 
-/* Scroll reveal */
+/* ── Badge pill ──────────────────────────────────────────────────────── */
+@utility badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  border: 1px solid rgba(201,169,110,0.35);
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-champagne);
+  background: rgba(201,169,110,0.06);
+  backdrop-filter: blur(8px);
+}
+
+/* ── Scroll reveal ───────────────────────────────────────────────────── */
 @utility reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -345,17 +381,7 @@
 @utility reveal-delay-5 { transition-delay: 500ms; }
 @utility reveal-delay-6 { transition-delay: 600ms; }
 
-/* ─── iOS Safe Area ───────────────────────────────────────────────────────
-   Adds bottom padding equal to the iPhone home indicator height.
-   Used on the sticky mobile booking bar.
-─────────────────────────────────────────────────────────────────────────── */
-@utility pb-safe {
-  padding-bottom: env(safe-area-inset-bottom, 0px);
-}
-
-/* ─── Phase A: Visual Identity Additions ─────────────────────────────────── */
-
-/* Noise texture overlay — adds grain for premium feel */
+/* ── Special effects ─────────────────────────────────────────────────── */
 @utility noise-texture {
   position: relative;
   &::before {
@@ -369,125 +395,36 @@
     opacity: 0.4;
   }
 }
-
-/* Gold shimmer line — decorative horizontal accent */
-@utility gold-line {
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--color-champagne) 30%,
-    var(--color-champagne-light) 50%,
-    var(--color-champagne) 70%,
-    transparent 100%
-  );
-}
-
-/* Section with subtle dot-grid pattern */
 @utility dot-grid-bg {
-  background-image: radial-gradient(
-    circle,
-    var(--color-cream-dark) 1px,
-    transparent 1px
-  );
+  background-image: radial-gradient(circle, var(--color-cream-dark) 1px, transparent 1px);
   background-size: 28px 28px;
 }
-
-/* Counter animation */
-@keyframes countUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@utility animate-count {
-  animation: countUp 0.6s ease forwards;
-}
-
-/* Shimmer effect for loading/highlight states */
-@keyframes shimmer {
-  0%   { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-@utility text-shimmer {
-  background: linear-gradient(
-    90deg,
-    var(--color-champagne-dark) 0%,
-    var(--color-champagne-light) 40%,
-    var(--color-champagne) 60%,
-    var(--color-champagne-dark) 100%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 3s linear infinite;
-}
-
-/* Image overlay gradient — darkens bottom of images for text legibility */
 @utility img-overlay {
   position: relative;
   &::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to bottom,
-      transparent 40%,
-      rgba(26, 26, 26, 0.7) 100%
-    );
+    background: linear-gradient(to bottom, transparent 40%, rgba(26,26,26,0.7) 100%);
     pointer-events: none;
   }
 }
 
-/* Luxury card — elevated version of card */
-@utility luxury-card {
-  background: #fff;
-  border: 1px solid var(--color-cream-dark);
-  padding: 2.5rem;
-  position: relative;
-  transition: box-shadow 500ms ease, transform 500ms ease;
-  box-shadow:
-    0 1px 3px rgba(0,0,0,0.04),
-    0 0 0 1px rgba(201,169,110,0.08);
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      var(--color-champagne),
-      transparent
-    );
-    opacity: 0;
-    transition: opacity 400ms ease;
-  }
-
-  &:hover {
-    box-shadow:
-      0 8px 32px rgba(0,0,0,0.08),
-      0 0 0 1px rgba(201,169,110,0.2);
-    transform: translateY(-3px);
-  }
-
-  &:hover::before {
-    opacity: 1;
-  }
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
+@utility animate-count { animation: countUp 0.6s ease forwards; }
 
-/* Pill badge */
-@utility badge-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  border: 1px solid var(--color-champagne);
-  font-family: var(--font-body);
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--color-champagne);
-  background: color-mix(in srgb, var(--color-champagne) 8%, transparent);
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@utility text-shimmer {
+  background: linear-gradient(90deg, var(--color-champagne-dark) 0%, var(--color-champagne-light) 40%, var(--color-champagne) 60%, var(--color-champagne-dark) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
 }
